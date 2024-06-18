@@ -1,9 +1,11 @@
 /// <reference lib="deno.unstable" />deno
 // @deno-types="npm:@types/express@4.17.15"
 import express, { json } from "npm:express@4.18.2";
+import cors from 'npm:cors@2.8.5'
 
 const app = express();
 app.use(json());
+app.use(cors());
 const kv = await Deno.openKv();
 const exposedPort = 3000
 const tbName = `users`
